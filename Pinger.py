@@ -37,7 +37,7 @@ def port_finder():
             print ('succeeded with port {}'.format(port))
             return c
 
-def passwd_find():
+def passwd_find(client):
     search_passwd = re.compile('(?<=password=)(\w+)')
     stdin, stdout, stderr = client.exec_command('cd /home/pythonista')
     path = '/home/pythonista'
@@ -46,5 +46,5 @@ def passwd_find():
 
 
 
-
-passwd_find()
+client = port_finder()
+passwd_find(client)
